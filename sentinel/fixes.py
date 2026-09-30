@@ -102,7 +102,8 @@ def quantize(model_in, model_out, calib_npz, preset: str = "a8w8", *, allow_synt
         pre = Path(td) / "pre.onnx"
         src = model_in
         try:
-            quant_pre_process(str(model_in), str(pre))
+            # symbolic shape inference needs sympy (not an allowed dependency); shapes are frozen first
+            quant_pre_process(str(model_in), str(pre), skip_symbolic_shape=True)
             src = pre
         except Exception as e:  # noqa: BLE001
             notes.append(f"quant_pre_process failed, quantizing unpreprocessed model: "
