@@ -1,0 +1,25 @@
+# Sentinel configuration. All values are DEFAULTS; logic never hard-codes them.
+
+[gate]
+share_min = 0.90
+cos_min = 0.99
+top1_min = 0.97
+exact_tol = 1e-4
+
+[timing]
+warmup = 5
+runs = 50
+
+[loop]
+max_attempts = 4
+probe_timeout_s = 300
+
+[qnn]
+backend_path = "QnnHtp.dll"
+htp_performance_mode = "burst"
+
+[llm]
+enabled = false
+base_url = "http://127.0.0.1:5273/v1"
+model = ""
+timeout_s = 20

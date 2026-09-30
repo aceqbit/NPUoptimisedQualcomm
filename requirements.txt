@@ -1,0 +1,7 @@
+numpy
+onnx
+onnxruntime-qnn
+Jinja2
+rich
+pytest
+Pillow
