@@ -119,5 +119,11 @@ pytest -q
   If the cause is the model (unsupported op or dtype), record it as unresolved instead of hiding it.
 - If quantization tooling does not import on ARM64 Python, raise `EnvError` and explain the x64 workaround. Never skip silently.
 
+## Current status (2026-09-30)
+- P1 to P13, P15 and P16 are built and pushed to `github.com/aceqbit/NPUoptimisedQualcomm` (`main`).
+- The dev machine is an **Intel x64** laptop (no NPU), so the QNN path raises `EnvError` there as designed.
+  P14 (on-device run) is still pending on the Snapdragon laptop, and every `# TODO(verify)` must be checked there.
+- The quantize fallback is `quantize_static` (QDQ). The installed ORT 1.30.0 has no `quantization.execution_provider.qnn`.
+
 ## Deadline
 The submission portal closes **30 Sep 2026, 11:59 PM IST**. Tag `v1-submission` early and continue development on a separate branch.
